@@ -1,0 +1,32 @@
+<div class="h-screen flex items-center justify-center">
+    <div class="h-full w-full border">
+        <div class="flex justify-center mt-10">
+            <div class="w-10/12 p-2 rounded flex justify-between items-center border shadow-md">
+                <span class="font-extrabold text-xl">Activities List</span>
+                <button mat-fab color="primary" (click)="createActivity()"><mat-icon>create</mat-icon></button>
+            </div>
+        </div>
+        <div class="flex items-center  justify-center mt-10 ">
+            <div class="w-full flex justify-center h-5/12 flex-wrap gap-20">
+                <div *ngIf="isLoading" class="w-full flex justify-center">
+                    <mat-spinner></mat-spinner>
+                </div>
+                <div [routerLink]="data?.id" class="w-3/12 p-3 shadow-lg hover:shadow-2xl cursor-pointer" *ngFor="let data of activityList">
+                    <div class="w-full flex  justify-between">
+                        <img div-image style="width: 100px;" src="assets/images/task.png" alt="Photo of a Shiba Inu">
+                        <div class="flex gap-3">
+                            <span  class="content-end cursor-pointer" (click)="deleteActivity($event,data.id)"><mat-icon color="warn">delete</mat-icon></span>
+                            <span  class="content-end cursor-pointer" (click)="editActivity($event,data)"><mat-icon color="primary">edit</mat-icon></span>
+                        </div>
+                    </div>
+                    <div >
+                      <h1 ><strong>{{data?.activityName}}</strong></h1>
+                    </div>
+                    <div class="w-full flex justify-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+  
+</div>

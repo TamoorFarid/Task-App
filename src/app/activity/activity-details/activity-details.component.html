@@ -1,0 +1,41 @@
+<div class="h-screen flex-col flex justify-start gap-10">
+    
+    <div class="h-1/3 mt-8">
+       <div class="flex justify-center ">
+            <div class=" w-10/12 rounded flex justify-between items-center shadow-lg gap-8 border p-3">
+                <span class="font-extrabold text-xl">Tasks List</span>
+                <span>
+                    <button mat-fab color="primary" (click)="createTask()">
+                        <mat-icon>add_box</mat-icon>
+                    </button>
+                </span>
+            </div>
+       </div>
+    </div>
+  
+    <div class="h-1/3 w-full flex justify-center">
+        <div *ngIf="isLoading" class="w-full flex justify-center">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="w-9/12" *ngIf="!isLoading">
+            <mat-expansion-panel  hideToggle *ngFor="let data of tasksList">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{data.title}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <div class="w-full flex justify-between items-center">
+                        <span>{{data.summary}}</span>
+                        <div class="flex gap-5">
+                            <span><mat-icon class="cursor-pointer" matTooltip="delete" color="warn" (click)="deleteTask($event,data.id)">delete</mat-icon></span>
+                            <span><mat-icon class="cursor-pointer" matTooltip="edit" color="warn" (click)="updateTask($event,data)">edit</mat-icon></span>
+                        </div>
+                    </div>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{data.description}}</p>
+              </mat-expansion-panel>
+        </div>
+    </div>
+    
+</div>
