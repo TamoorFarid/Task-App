@@ -18,6 +18,8 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu';
+import { CompletedTasksComponent } from './completed-tasks/completed-tasks.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     CreateActivityComponent,
     NoActivityComponent,
     ActivityDetailsComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    CompletedTasksComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatExpansionModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatMenuModule
   ]
 })
 export class ActivityModule { }

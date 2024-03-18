@@ -65,11 +65,23 @@ export class ActivityDetailsComponent {
     this.matDialog.open(CreateTaskComponent,{
       data:{task:data,id:this.activityId}
     }).afterClosed().subscribe((res)=>{
-      if(res && res.task){
+      if(res){
         this.getAllTasks();
         this.snackBar.open("Task has been updated successfully","ok")
       }
     })
   }
 
+  updateTaskStatus(id:any){
+    let data = {isCompleted:true}
+    this.activitySer.updateTaskStatus(id,data).subscribe((res)=>{
+      if(res){
+        let index = this.tasksList.findIndex((items:any)=> items.id == id);
+        if(index !== -1){
+          this.tasksList.splice(index,1)
+        }
+        this.snackBar.open("Task status has been updated successfully", "ok")
+      }
+    })
+  }
 }

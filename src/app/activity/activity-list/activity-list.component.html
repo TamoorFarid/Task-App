@@ -15,8 +15,8 @@
                     <div class="w-full flex  justify-between">
                         <img div-image style="width: 100px;" src="assets/images/task.png" alt="Photo of a Shiba Inu">
                         <div class="flex gap-3">
-                            <span  class="content-end cursor-pointer" (click)="deleteActivity($event,data.id)"><mat-icon color="warn">delete</mat-icon></span>
-                            <span  class="content-end cursor-pointer" (click)="editActivity($event,data)"><mat-icon color="primary">edit</mat-icon></span>
+                            <span  class="content-end cursor-pointer" ><mat-icon color="warn" (click)="deleteActivity($event,data.id)">delete</mat-icon></span>
+                            <span  class="content-end cursor-pointer" ><mat-icon color="primary" (click)="editActivity($event,data)">edit</mat-icon></span>
                         </div>
                     </div>
                     <div >

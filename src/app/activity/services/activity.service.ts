@@ -40,4 +40,12 @@ export class ActivityService {
   updateActivity(id:any,body:any){
     return this.http.put(`${environment.apiUrl}/editActivity/${id}`,body);
   }
+ 
+  updateTaskStatus(id:any,body:any){
+    return this.http.put(`${environment.apiUrl}/updateTasksStatus/${id}`,body);
+  }
+  
+  getCompletedTasks(){
+    return this.http.get(`${environment.apiUrl}/getCompletedTasksList`);
+  }
 }
