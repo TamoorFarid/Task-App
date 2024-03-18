@@ -21,11 +21,11 @@
             <mat-expansion-panel  hideToggle *ngFor="let data of tasksList">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    {{data.title}}
+                    {{data?.title}}
                   </mat-panel-title>
                   <mat-panel-description>
                     <div class="w-full flex justify-between items-center">
-                        <span>{{data.summary}}</span>
+                        <span>{{data?.summary}}</span>
                         <div class="flex gap-5">
                             <span><mat-icon class="cursor-pointer" matTooltip="delete" color="warn" (click)="deleteTask($event,data.id)">delete</mat-icon></span>
                             <span><mat-icon class="cursor-pointer" matTooltip="edit" color="warn" (click)="updateTask($event,data)">edit</mat-icon></span>

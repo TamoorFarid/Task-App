@@ -22,8 +22,8 @@
     <mat-dialog-actions>
         <div>
             <button mat-raised-button (click)="close()">Cancel</button>
-            <button mat-raised-button [disabled]="!activityFg.valid" color="primary" (click)="createActivity()">Create</button>
-            <button mat-raised-button [disabled]="!activityFg.valid" color="primary" (click)="updateActivity()">Update</button>
+            <button mat-raised-button *ngIf="!data?.activity" [disabled]="!activityFg.valid" color="primary" (click)="createActivity()">Create</button>
+            <button mat-raised-button *ngIf="data?.activity" [disabled]="!activityFg.valid" color="primary" (click)="updateActivity()">Update</button>
         </div>
     </mat-dialog-actions>
 </div>

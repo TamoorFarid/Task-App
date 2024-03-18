@@ -40,9 +40,10 @@ export class ActivityDetailsComponent {
     this.matDialog.open(CreateTaskComponent,{
       data:{activityId:this.activityId}
     }).afterClosed().subscribe((res)=>{
-      this.tasksList.push(res)
-      this.snackBar.open("The task has been created successfully","ok");
-
+      if(res){
+        this.tasksList.push(res)
+        this.snackBar.open("The task has been created successfully","ok");
+      }
     })
   }
 
@@ -64,7 +65,7 @@ export class ActivityDetailsComponent {
     this.matDialog.open(CreateTaskComponent,{
       data:{task:data,id:this.activityId}
     }).afterClosed().subscribe((res)=>{
-      if(res){
+      if(res && res.task){
         this.getAllTasks();
         this.snackBar.open("Task has been updated successfully","ok")
       }

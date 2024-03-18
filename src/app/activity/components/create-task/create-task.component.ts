@@ -17,7 +17,6 @@ export class CreateTaskComponent implements OnInit{
   constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) public data:any,private activitySer:ActivityService,private matDialog:MatDialogRef<CreateTaskComponent> ){}
 
   ngOnInit(): void {
-    console.log(this.activityId)
     this.taskFg = this.fb.group({
       title:new FormControl('',Validators.required),
       summary:new FormControl(''),
