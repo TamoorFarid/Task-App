@@ -1,0 +1,43 @@
+<div class="w-full">
+    <div class="flex p-4 items-center justify-center">
+        <div class="w-6/12">
+            <img class="w-10/12 rounded-full border shadow-md" src="assets/images/signup.png" alt="">
+        </div>
+        <div class="w-6/12">
+            <form [formGroup]="signupFg" class="flex-col flex justify-start flex-wrap">
+                <span>
+                    <mat-form-field class="w-10/12" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input type="text" formControlName="name" matInput>
+                        <mat-error *ngIf="signupFg.controls['name'].touched && signupFg.controls['name'].hasError('required')"><strong>username field is required</strong></mat-error>
+                    </mat-form-field>
+                </span>
+                <span>
+                    <mat-form-field class="w-10/12" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="text" formControlName="email" matInput>
+                        <mat-error *ngIf="signupFg.controls['email'].touched && signupFg.controls['email'].hasError('required')"><strong>Email field is required</strong></mat-error>
+                    </mat-form-field>
+                </span>
+                <span>
+                    <mat-form-field class="w-10/12" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="text" formControlName="password" matInput>
+                        <mat-error *ngIf="signupFg.controls['email'].touched && signupFg.controls['email'].hasError('required')"><strong>Password field is required</strong></mat-error>
+                    </mat-form-field>
+                </span>
+                <span>
+                    <mat-form-field class="w-10/12" appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="text" formControlName="password_confirmation" matInput>
+                        <mat-error *ngIf="signupFg.controls['password_confirmation'].touched && signupFg.controls['password_confirmation'].hasError('required')"><strong>Confirm password field is required</strong></mat-error>
+                    </mat-form-field>
+                    <p>Already have an account?<span  routerLink="/auth/login"><strong class="ml-1 cursor-pointer underline">Login</strong></span></p>
+                </span>
+                <span>
+                    <button mat-raised-button color="primary" (click)="register()">Signup</button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>

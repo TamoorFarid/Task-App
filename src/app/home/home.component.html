@@ -1,3 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="w-full flex justify-between items-center p-2" color="primary">
     <span class="font-bold cursor-pointer" routerLink="/">Task App</span>
+    <span class="font-bold cursor-pointer"><mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon></span>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
   </mat-toolbar>

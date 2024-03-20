@@ -1,0 +1,29 @@
+<div class="w-full">
+    <div class="flex p-4 items-center justify-center">
+        <div class="w-6/12">
+            <img class="w-10/12 rounded-full border shadow-md" src="assets/images/login.png" alt="">
+        </div>
+        <div class="w-6/12">
+            <form [formGroup]="loginFg" class="flex-col flex justify-start flex-wrap">
+                <span>
+                    <mat-form-field class="w-10/12" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="text" formControlName="email" matInput>
+                        <mat-error *ngIf="loginFg.controls['email'].touched && loginFg.controls['email'].hasError('required')"><strong>Email field is required</strong></mat-error>
+                    </mat-form-field>
+                </span>
+                <span>
+                    <mat-form-field class="w-10/12" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="text" formControlName="password" matInput>
+                        <mat-error *ngIf="loginFg.controls['password'].touched && loginFg.controls['password'].hasError('required')"><strong>Password field is required</strong></mat-error>
+                    </mat-form-field>
+                    <p >Don't have an account?<span routerLink="/auth/signup"><strong  class="ml-1 cursor-pointer underline">Register</strong></span></p>
+                </span>
+                <span>
+                    <button mat-raised-button color="primary" (click)="login()">Login</button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>
